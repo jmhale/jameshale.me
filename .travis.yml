@@ -1,8 +1,20 @@
+language: python
+python:
+  - "3.5"
+cache: pip
+install:
+  - pip install awscli
+script:
+  - make build
 deploy:
+  on:
+    branch: master
   provider: s3
   access_key_id: AKIAIIJL4VA74DVNYSDA
   secret_access_key:
     secure: GEPk+0HzJJ5HjTB5OocCrgQnj6qT/fiH7fXhUntctIqY9ppcrhUSSRzEfJL923tmgmRK/jl998owwWz+vo9P4ZXDmMu93WQlTy5x43xfQwqFzozaSyUrOz+pMkETKVbybwotvmOTah/4/s5HnOQjGxaRtYZ5C+sMuSuMZ0Qort0+lJLIiOHYns6NxNDzfm7Bo+O4lMLJPd26qPfPkO69olVe/zKo7sNK5PJaoqYN9k9U47ykzCJYf0rHFDFwcZlzN6ptf6rrICEDtvhqHHh8vmVzHbmv2/8rKUNIB9L5+eNO3gdICvokBVxkXf0nYw/Hy2ihP9iaJ3K+a0TU8TZYYFquAgDrej9UEDeUCuInGVWPFi2h/YwFa1lsPAykXkBWt5cuPCOmHVOUxfQ7+H1WM4x5IljRASnqJ2a8BE1Fr90dKAMqNPUs2jSWKqv8YABgKEfdNVIiH8VzzHyGjsgbphBj7qLq2jdmQn/Zq9o76NRDzO5Q9E2WVslHOH7nPhW4NfP3MxXNb5e8o2udio86Msj9DCemsO7Kh5/pDxMlqsyiTb27F74DhK9Xh43yXXrH4SxWHL70Z8WYPoxdkODsYUPnOKW1OBTanZS9bydlRSVYV0/9pyBDMbjEtucvAMh4mQhvffC66Q4S9sFOsDAXvYPH+zGzdkFySPt62r7nnYg=
   bucket: jameshale.me
   skip_cleanup: true
-  acl: public_read
+  local_dir: build
+  # Set the Cache-Control header.
+  # cache_control: "max-age=21600"
