@@ -4,20 +4,27 @@ Mi. - Personal Resume vCard Template
 
 File:			Blue-Beige Theme
 Version:		1.0
-Last change:	09/10/15 
+Last change:	09/10/15
 Author:			Suelo
 
 -------------------------------------------------------------------------------- */
 
 /* Primary */
 
-a:hover, a:focus, 
-.text-primary, 
+a:hover, a:focus,
+.text-primary,
 .icon-white,
 #messenger-toggle,
 .btn-primary:hover, .btn-primary:focus,
 .icon-primary.icon-hover:hover, .icon-primary.icon-hover:focus {
-	color: #3aa8db; 
+	color: #ffffff;
+}
+
+.boxed-primary {
+	border: 1px solid black;
+	background-color: #000000;
+	padding:6px;
+	opacity: 0.6;
 }
 
 .bg-primary,
@@ -38,7 +45,7 @@ a:hover, a:focus,
 .nav-panels > li.active > a, .nav-panels > li.active > a:focus, .nav-panels > li.active > a:hover,
 #ajax-loader:before,
 .owl-pagination .owl-page.active > span {
-	background-color: #3aa8db; 
+	background-color: #3aa8db;
 }
 
 /* Secondary */
@@ -46,7 +53,7 @@ a:hover, a:focus,
 .text-secondary,
 .btn-secondary:hover, .btn-secondary:focus,
 .icon-secondary.icon-hover:hover, .icon-secondary.icon-hover:focus {
-	color: #31485e; 
+	color: #31485e;
 }
 
 .bg-secondary,
@@ -54,7 +61,7 @@ a:hover, a:focus,
 .icon-circle.icon-secondary,
 .progress-bar-secondary,
 .te-secondary:before {
-	background-color: #31485e; 
+	background-color: #31485e;
 }
 
 /* Tertiary */
@@ -62,7 +69,7 @@ a:hover, a:focus,
 .text-tertiary,
 .btn-tertiary:hover, .btn-tertiary:focus,
 .icon-tertiary.icon-hover:hover, .icon-tertiary.icon-hover:focus {
-	color: #caa669; 
+	color: #caa669;
 }
 
 .bg-tertiary,
@@ -70,6 +77,5 @@ a:hover, a:focus,
 .icon-circle.icon-tertiary,
 .progress-bar-tertiary,
 .te-tertiary:before {
-	background-color: #caa669; 
+	background-color: #caa669;
 }
-
