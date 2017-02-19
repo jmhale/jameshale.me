@@ -4,8 +4,7 @@ rvm:
 install: gem install jekyll -v 2.4.0 && gem install s3_website
 script: jekyll build
 after_success:
-  - s3_website push
-  - bash cf_purge.sh
-branches:
-  only:
-    - master
+  '[ ${TRAVIS_PULL_REQUEST} = "false" ] &&
+   [ ${TRAVIS_BRANCH} = "master" ] &&
+   s3_website push &&
+   bash cf_purge.sh'
