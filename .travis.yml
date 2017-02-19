@@ -5,7 +5,7 @@ install: gem install jekyll -v 2.4.0 && gem install s3_website
 script: jekyll build
 after_success:
   - s3_website push
-  - ./cf_purge
+  - bash cf_purge.sh
 branches:
   only:
     - master
