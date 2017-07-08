@@ -11,4 +11,5 @@ deploy:
   on:
     branch: master
   local_dir: ./_site
+  skip_cleanup: true
 after_deploy: bash _deploy/cf_purge.sh
