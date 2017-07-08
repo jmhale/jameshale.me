@@ -10,4 +10,5 @@ deploy:
   bucket: jameshale.me
   on:
     branch: master
-after_deploy: bash cf_purge.sh
+  local_dir: _site
+after_deploy: bash _deploy/cf_purge.sh
