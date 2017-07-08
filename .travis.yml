@@ -1,10 +1,13 @@
 language: ruby
-rvm:
-  - 2.1
-install: gem install jekyll -v 2.4.0 && gem install s3_website
+rvm: 2.1
+install: gem install jekyll -v 2.4.0
 script: jekyll build
-after_success:
-  '[ ${TRAVIS_PULL_REQUEST} = "false" ] &&
-   [ ${TRAVIS_BRANCH} = "master" ] &&
-   s3_website push &&
-   bash cf_purge.sh'
+deploy:
+  provider: s3
+  access_key_id: AKIAJ77MISS2AXMDZ65A
+  secret_access_key:
+    secure: Movjy1aRfy2OJkZuSdV9M5tm4cPW1pYPmCKzFJr6xOQ8LrcfKODwQk/bsz/pyYeTkIiHBlQMPvSE5Mof5TjkEBlYExEBd3KG+o9RxC5q1Z1DOxT2pc5ZKmg0Fo9ji8dHnhmLZDuM8OXOwUkCLKc690B6gdvL8x73WgHgaOI9VHwSn9baxX4LhmU9GbhAMe4N/pcxJOCE4aLAfZ9pd+MvUBmeNCLuPi6raEvWIn7fk0HFYf4+/2xUBg7fcdfXiiWYCx1m8Z6+qIX3OUyIdweZy/b1WJkQxfakPivev4JOezS5YvNxNUeIicV4T6VIqauaL0g3UVvggRlF66cMNUHokBl8OFrKlMnZEum/dB6tPHTJrB+6z0XcYePlLX9VvZXcTLtE63KW/kVqc19fVdA/VF17ealxX/LNPGJ17NIKayevSNuDYFTeVYXCurCQmZl9PuwlqFyQrlD9t70VZNJRga4LvP75MrdUfMK6C/whWyi9+S0XOQKLp46P0JR4TQyxHPgRa3rZUsTaT3wwhG/PLY7OObbpFvxmHs9bHvr9IUoeOsi0rUrsms9MkbJXg2IECzbx0Zn17Yxo7Eyjcsv0fAU5MVZrOHii3DXXXG7TIkG4SIYYp/9J9HfngEj3iiqQroBSgIfM+UZwDMJ2NDeq9aoxKSWxH7333oAPfm8796Y=
+  bucket: jameshale.me
+  on:
+    branch: master
+after_deploy: bash cf_purge.sh
