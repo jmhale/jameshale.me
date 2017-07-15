@@ -1,6 +1,9 @@
 language: ruby
 rvm: 2.1
-install: gem install jekyll -v 2.4.0
+env:
+  global:
+    secure: X7utB2ezc6c/XyKBqbvgaa2Vu7RqcfGbCIxOEbA9wZ7Ke2/0XxpB8EtZ3TmLP/XWpHWTv0e6gHeZ/CPIFi0jg6Z974GVObk3irHyZ76t3aQfcziSznkX6mvfPmQgVEXT7dFwJAKwh40TzSbIZewP+eH8i80c39CfCVtxAUV2KNmhYmzSvSBjvO7HrQNVTz73CaIgqJxuHmNU5UsXfCwVFQl7C4IXqU6ZcI2sh78bGEgKma/Aw2jQmxckhxinx0MmBDmzF+x5Qa5KU7xFvyWHdgl8KRLqkpLnBcDW0fPZvrDnwlx/86vSopVDcxM/Ee8FHkhWaL3WUOBNzjCfsn1E6gS/tieJCSMt3FayevfVj6w41F4VxPc5kPV5ampz8lpRjbth2woUXxE2vApKs1/a7Vjow1Ob+ThUeSLwezyr65KyBPbIeVk7G1offHKA8FUDDee75UakMatmvyVvf8y7IlF3lj3NrgsGHFv2QozANpllA6cb9eCZM/uDWWgpwHLetQukuK/oC8I6jqV8Ur73KCMiUfFRZG10s8wol7JFOK9BbYU2i3dzgzMo8s+OqpITILcwT2lNJ49PfGkAIZ6JwS1q4dGV/Fi+ZWWXDcLx5GOoKaLVhDNUIBDj8Zp/AqHUaxsXrPIGMAxsoeUpZ3qq6lRfQ5gDVsJVg82jurdsRZU=
+install: gem install jekyll -v 2.4.0 cf-s3-invalidator
 script: jekyll build
 deploy:
   provider: s3
@@ -10,6 +13,6 @@ deploy:
   bucket: jameshale.me
   on:
     branch: master
-  local_dir: ./_site
+  local_dir: "./_site"
   skip_cleanup: true
-after_deploy: bash _deploy/cf_purge.sh
+after_deploy: cf-s3-inv --key AKIAJ77MISS2AXMDZ65A --secret ${AWS_SECRET_ACCESS_KEY} --distribution EJ67OLBDSYP63
