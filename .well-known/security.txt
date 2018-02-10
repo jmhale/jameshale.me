@@ -1,0 +1,3 @@
+Contact: security@jameshale.net
+Contact: https://twitter.com/d0gsec
+Encryption: https://jameshale.net/hale.gpg.asc

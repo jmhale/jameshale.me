@@ -1,3 +1,5 @@
 exclude:
   - cf_purge.sh
   - README.md
+include:
+  - .well-known
