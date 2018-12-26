@@ -16,8 +16,8 @@ deploy:
     branch: master
   local_dir: "./_site"
   skip_cleanup: true
-after_deploy: cf-s3-inv --key AKIAJ4RQKULZGZW6W6ZQ --secret ${AWS_SECRET_ACCESS_KEY}
-  --distribution EJ67OLBDSYP63
+  after_deploy:
+    - "curl -X DELETE \"https://api.cloudflare.com/client/v4/zones/${CF_ZONEID_JAMESHALENET}/purge_cache\" -H \"X-Auth-Email: ${CF_EMAIL}\" -H \"X-Auth-Key: ${CF_API_KEY}\" -H \"Content-Type: application/json\" --data '{"purge_everything":true}'"
 notifications:
   slack:
     rooms:
