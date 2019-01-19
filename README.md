@@ -1,3 +1,5 @@
-[![Build Status](https://travis-ci.org/jmhale/jameshale.me.svg?branch=master)](https://travis-ci.org/jmhale/jameshale.me)
+# Deprecation Notice
 
-https://jameshale.me
+This repository has been deprecated, as https://jameshale.net has relaunched with a new Jekyll theme, found [here](https://github.com/jmhale/jameshale.net)
+
+Archiving for posterity.
